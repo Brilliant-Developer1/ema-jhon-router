@@ -1,4 +1,7 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import { removeFromDb } from '../../utilities/fakedb';
@@ -7,7 +10,7 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 /* import '../Shop/Shop.css'; */
 
 const OrderReview = () => {
-    const [products, setProducts] = useProducts();
+    const [products] = useProducts();
     const [cart, setCart] = useCart(products);
     const handleRemove = key => {
         const newCart = cart.filter(product => product.key !== key)
@@ -28,8 +31,13 @@ const OrderReview = () => {
             
             <div className="cart-container">
                 <Cart
-                cart={cart}
-                ></Cart>
+                cart={cart}>
+                    <NavLink to='*'>
+                        <button
+                        className='btn-regular'
+                        >Place Order<FontAwesomeIcon icon={faShoppingCart} /></button>
+                    </NavLink>
+                </Cart>
             </div>
         </div>
     );

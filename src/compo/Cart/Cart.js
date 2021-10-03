@@ -1,17 +1,8 @@
 import './Cart.css';
 
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-
 const Cart = (props) => {
     const {cart} = props;
-    /* const totalReducer = (previous,product) => {
-        return previous + product.price;
-    }
-    const totalQuantity = 0;
-    const total = cart.reduce(totalReducer , 0 ); */
-    /* Er bodle Uporer reduce function kora hoise */
     let totalQuantity = 0;
     let total = 0; 
     for (const product of cart) {
@@ -33,10 +24,10 @@ const Cart = (props) => {
         <p>Shipping & Handling: {shipping.toFixed(2)}</p>
         <p>Estimated Tax: {tax.toFixed(2)}</p>
         <p>Order Total: {grandTotal.toFixed(2)}</p>
+        {/*Button added*/}
+        {props.children}
         </div>
-        <button
-                className='btn-regular'
-                >Review Order<FontAwesomeIcon icon={faShoppingCart} /></button>
+            
         </div>
     );
 };
