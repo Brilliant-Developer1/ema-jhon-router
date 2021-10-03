@@ -6,6 +6,7 @@ import Shop from './compo/Shop/Shop';
 import OrderReview from './compo/OrderReview/OrderReview';
 import Inventory from './compo/Inventory/Inventory';
 import NotFound from './compo/NotFound/NotFound';
+import PlaceOrder from './compo/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path='/inventory'>
               <Inventory></Inventory>
+            </Route>
+            <Route path='/placeOrder'>
+              <PlaceOrder></PlaceOrder>
             </Route>
             <Route path='*'>
               <NotFound></NotFound>
